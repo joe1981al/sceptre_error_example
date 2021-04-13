@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Stack for Testing'
+
+Parameters:
+  Test:
+    Type: String
+    Default: {{ sceptre_user_data.test | default("default") }}
+
+Resources:
+  NullResource:
+    Type: 'Custom::NullResource'
+
+Outputs:
+  TestOutput:
+    Value: !Ref 'AWS::StackName'
